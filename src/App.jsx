@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/1.login/Login';
-import ProductAll from './pages/2.profile/Profile';
+import Profile from './pages/2.profile/Profile';
 import Detail from './pages/3.detail/Detail';
 import Navbar from './components/header/Navbar'; 
 
