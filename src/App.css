@@ -2,7 +2,9 @@
     display: flex;
     justify-content: flex-end;
     margin: 20px;
+    cursor: pointer;
 }
+
 
 .nav-section {
     display: flex;
@@ -15,9 +17,17 @@
 
 .menu-list li{
     padding: 10px;
+    list-style-type: none;
+
 }
 
 .menu-area {
     display:flex;
     justify-content: center;
+}
+
+.login-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
