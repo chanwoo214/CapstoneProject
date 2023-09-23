@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './pages/1.login/Login';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import Home from './pages/1. home/Home';
 import Profile from './pages/2.profile/Profile';
 import Detail from './pages/3.detail/Detail';
 import ForgotPassword from './pages/4. forgotPassword/ForgotPassword';
@@ -15,11 +15,12 @@ import Navbar from './components/header/Navbar';
 function App() {
   return (
       <div>
+        <BrowserRouter>
         <Navbar />
         <Router>
           <Routes>
 
-            <Route exact path='/' element={<Login />} />
+            <Route exact path='/'element={<Home />}/>
             <Route exact path='/profile' element={<Profile />} />
             <Route exact path='/detail' element={<Detail />} />
             <Route exact path='/forgotPassword' element={<ForgotPassword />} />
@@ -29,6 +30,7 @@ function App() {
 
           </Routes>
         </Router>
+        </BrowserRouter>
       </div>
   );
 }
