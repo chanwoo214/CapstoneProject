@@ -1,38 +1,21 @@
-import { useState } from 'react';
+import { Amplify } from 'aws-amplify';
+import { Authenticator, useAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
-import Home from './pages/1. home/Home';
-import Profile from './pages/2.profile/Profile';
-import Detail from './pages/3.detail/Detail';
-import ForgotPassword from './pages/4. forgotPassword/ForgotPassword';
-import ContactUs from './pages/5. contactUs/ContactUs';
-import AboutUs from './pages/6. aboutUs/AboutUs';
-import Adviser from './pages/7. adviser/Adviser';
-import Navbar from './components/header/Navbar';
+//import './Style.css'
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
+import MyThemeProvider from './context/MyThemeContext';
+import AppRoutes from './routes/AppRoutes';
 
-
-
-function App() {
+export default function App() {
   return (
-      <div>
-        <BrowserRouter>
-        <Navbar />
-        <Router>
-          <Routes>
-
-            <Route exact path='/'element={<Home />}/>
-            <Route exact path='/profile' element={<Profile />} />
-            <Route exact path='/detail' element={<Detail />} />
-            <Route exact path='/forgotPassword' element={<ForgotPassword />} />
-            <Route exact path='/contactUs' element={<ContactUs />} />
-            <Route exact path='/aboutUs' element={<AboutUs />} />
-            <Route exact path='/adviser' element={<Adviser />} />
-
-          </Routes>
-        </Router>
-        </BrowserRouter>
-      </div>
+    <>
+      <Authenticator.Provider>
+          <MyThemeProvider>
+            <AppRoutes />
+          </MyThemeProvider>
+      </Authenticator.Provider>
+    </>
   );
 }
-
-export default App;
