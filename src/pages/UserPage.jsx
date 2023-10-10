@@ -9,6 +9,7 @@ import NewClientDialog from '../components/NewClientDialog';
 import { useNavigate } from 'react-router-dom';
 import ProtectedLayout from '../layouts/ProtectedLayout';
 import "../style/userClient.css"
+import ClientTable from '../components/ClientTable';
 
 const UserPage = () => {
   const [showDialog, setShowDialog] = useState(false);
@@ -24,13 +25,13 @@ const UserPage = () => {
     "refixDate",
     "amount",
     "description",
-    "",
+    "Notes",
   ];
 
   const handleClickNewClient = () => {
     setMode("new");
     setShowDialog(true);
-    console.log("showDialog:", showDialog);
+    
   };
 
   return (
@@ -41,6 +42,12 @@ const UserPage = () => {
             Add New Client +
           </Button>
 
+          <ClientTable
+          header = {tableHeader}
+          data = {clientList}
+          deleteItem={deleteItem}
+          openEditForm={openEditForm}
+          />
         </Container>
 
         <NewClientDialog
@@ -54,4 +61,4 @@ const UserPage = () => {
   )
 
 };
-export default UserPage
+export default UserPage;

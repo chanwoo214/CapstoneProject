@@ -1,0 +1,49 @@
+name: Deploy React App to CloudFront
+
+on:
+  push:
+    branches:
+      - main # Change this to the branch you want to deploy from
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set default.region ap-southeast-2 # Change to your desired AWS region
+
+      - name: Deploy CloudFormation Stack
+        run: |
+          aws cloudformation deploy \
+            --template-file react-cloudformation-stack.yaml \
+            --stack-name CapstoneProjectFE \
+            --capabilities CAPABILITY_IAM
+
+      - name: Deploy React App
+        run: |
+          # Build your React app (you might need to adjust this command)
+          npm install
+          npm run build
+
+          # Upload the build to your S3 deployment bucket
+          aws s3 sync dist/ s3://capstone-project-iod-chanwooshim
+
+      - name: Get CloudFront DistributionId
+        id: get_distribution_id
+        run: |
+          # Use the AWS CLI to describe the CloudFormation stack and extract the DistributionId
+          distribution_id=$(aws cloudformation describe-stacks --stack-name CapstoneProjectFE --query "Stacks[0].Outputs[?OutputKey=='CloudFrontDistributionId'].OutputValue" --output text)
+          echo "::set-output name=distribution_id::$distribution_id"
+        
+      - name: Invalidate CloudFront Cache
+        run: |
+          distribution_id="${{ steps.get_distribution_id.outputs.distribution_id }}"
+          aws cloudfront create-invalidation --distribution-id $distribution_id --paths "/*"
+        
