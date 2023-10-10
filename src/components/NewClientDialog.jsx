@@ -29,7 +29,7 @@ const NewClientDialog = ({ mode, showDialog, setShowDialog }) => {
   }
 
   const handleSubmit = (event) => {
-
+    
   }
   return (
     <>
