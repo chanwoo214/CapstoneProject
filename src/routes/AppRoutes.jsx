@@ -8,26 +8,33 @@ import HomePage from '../pages/HomePage.jsx';
 import PageNotFound from "../pages/PageNotFound"
 import LogoutPage from '../pages/LogoutPage';
 import UserPage from '../pages/UserPage.jsx';
+import TodoPage from '../pages/TodoPage.jsx';
 
 // child components using {...props}
 export default function AppRoutes(props) {
 
     return (
         <Routes>
-            <Route path="/" element={<HomePage/>} />
-            <Route path="/login" element={<LoginPage/>} />
-            
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+
             <Route path="/user" element={
                 <ProtectedRoute>
                     <UserPage {...props} />
                 </ProtectedRoute>
-            }/>
+            } />
+
+            <Route path="/todo" element={
+                <ProtectedRoute>
+                    <TodoPage {...props} />
+                </ProtectedRoute>
+            } />
 
             <Route path="logout" element={
                 <ProtectedRoute>
-                    <LogoutPage/>
+                    <LogoutPage />
                 </ProtectedRoute>
-            }/>
+            } />
 
             <Route path="*" element={<PageNotFound />} />
         </Routes>

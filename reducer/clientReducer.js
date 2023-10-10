@@ -1,17 +1,17 @@
-import * as types from "../constants/product.constants";
+import * as types from "../constants/client.constants";
 const initialState = {
-  productList: [],
-  selectedProduct: null,
+  clientList: [],
+  selectedClient: null,
   loading: false,
   error: "",
   totalPageNum: 1,
 };
 
-function productReducer(state = initialState, action) {
+function clientReducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case types.SET_SELECTED_PRODUCT: {
-      return { ...state, selectedProduct: payload };
+    case types.SET_SELECTED_CLIENT: {
+      return { ...state, selectedClient: payload };
     }
     case types.PRODUCT_GET_REQUEST:
     case types.PRODUCT_CREATE_REQUEST:
