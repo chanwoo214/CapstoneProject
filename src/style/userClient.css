@@ -1,7 +1,7 @@
 .card-area{
     margin-top:20px;
 }
-.admin-product-card{
+.admin-client-card{
     border:1px solid red;
 
 }
@@ -16,34 +16,16 @@
 .locate-center{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: top;
     width: 100%;
 }
-.stock{
-    margin-right: 10px;
-}
 
-
-.mt-2{
-    margin-top: 20px;
-}
 
 .form-container{
-    padding:20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    padding:20px
 }
 
-.mr-1{
-    margin-right: 10px;
-}
 
-.upload-image{
-    max-width: 458px;
-    width:100%
-}
 .display-center{
     display: flex;
     justify-content: center;
@@ -52,7 +34,4 @@
     color: red;
     font-size: 10pt;
     padding-right: 10px;
-}
-.modal-dailog{
-    max-width:20px;
 }

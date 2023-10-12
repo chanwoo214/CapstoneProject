@@ -7,8 +7,11 @@ import awsExports from './aws-exports';
 Amplify.configure(awsExports);
 import MyThemeProvider from './context/MyThemeContext';
 import AppRoutes from './routes/AppRoutes';
+import { useDispatch } from 'react-redux';
+
 
 export default function App() {
+
   return (
     <>
       <Authenticator.Provider>

@@ -6,10 +6,14 @@ import api from "../utils/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import ProtectedLayout from "../layouts/ProtectedLayout";
+
 
 function TodoPage() {
+  //const{isLoading, data: todoList} = useQuery('todoList, readTodoRequest');
   const [todoList, setTodoList] = useState([]);
   const [todoValue, setTodoValue] = useState("");
+  
 
   const getTasks = async () => {
     const response = await api.get("/tasks");
@@ -65,7 +69,7 @@ function TodoPage() {
         <Col xs={12} sm={10}>
           <input
             type="text"
-            placeholder="Enter To Do"
+            placeholder="Add Task"
             onChange={(event) => setTodoValue(event.target.value)}
             className="input-box"
             value={todoValue}
@@ -89,3 +93,6 @@ function TodoPage() {
 }
 
 export default TodoPage;
+
+  
+  

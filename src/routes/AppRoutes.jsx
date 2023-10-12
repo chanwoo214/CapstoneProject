@@ -17,20 +17,21 @@ export default function AppRoutes(props) {
         <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
+             <Route path="/todo" element={<TodoPage />} /> 
+
+            {/* <Route path="/todo" element={
+                <ProtectedRoute>
+                    <TodoPage {...props} />
+                </ProtectedRoute>
+            } /> */}
 
             <Route path="/user" element={
                 <ProtectedRoute>
                     <UserPage {...props} />
                 </ProtectedRoute>
-            } />
+            } /> 
 
-            <Route path="/todo" element={
-                <ProtectedRoute>
-                    <TodoPage {...props} />
-                </ProtectedRoute>
-            } />
-
-            <Route path="logout" element={
+            <Route path="/logout" element={
                 <ProtectedRoute>
                     <LogoutPage />
                 </ProtectedRoute>

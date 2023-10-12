@@ -5,11 +5,12 @@ import ProtectedLayout from '../layouts/ProtectedLayout';
 
 
 export default function LoginPage() {
-    const navigate = useNavigate();
+    
     const { authStatus } = useAuthenticator((context) => [context.authStatus]);
 
     if (authStatus === 'authenticated') {
         return <Navigate to={'/user'} replace />;
+       
     }
     
     const formFields = {

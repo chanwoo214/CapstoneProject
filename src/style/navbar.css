@@ -1,0 +1,58 @@
+.welcome-text {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.login-icon{
+    display: flex;
+    justify-content: flex-end;
+    margin: 0px;
+}
+.login-button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.nav-section {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-list {
+    display:flex;
+    justify-content: center;
+    padding:0px;
+    margin:0px;
+}
+
+.menu-list li{
+    display: flex;
+    padding:20px;
+
+
+}
+
+.menu-area {
+    display:flex;
+    justify-content: center;
+    flex: row;
+}
+
+.login-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo {
+    display:flex;
+    justify-content: center;
+
+}
+
+.logo-button{
+    cursor: pointer;
+}

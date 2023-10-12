@@ -1,7 +1,7 @@
-body{
+/* body{
     color: lightblue !important ;
     background-color: aliceblue !important; 
-  }
+  } */
     .todo-item{
     border: 1px solid lightblue;
     background-color: white;
