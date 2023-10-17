@@ -10,12 +10,12 @@ This web application provides a simple form to fill out which will then allocate
 - AWS CloudFront
 
 ## Local setup
-- Clone the repo to your local
-- cd your-repo-folder
-- npm install
-- npm run dev
-- Open the browser of your choice
-- Open http://localhost:5173 to launch the application or https://d2bmm6q0qx6wno.cloudfront.net/
+1. Clone the repo to your local
+2. cd your-repo-folder
+3. npm install
+4. npm run dev
+5. Open the browser of your choice
+6. Open http://localhost:5173 to launch the application or https://d2bmm6q0qx6wno.cloudfront.net/
   
 ## Deployment
 Developers push or merge the new branches to the main branch.
